@@ -1,4 +1,3 @@
-
 /* Page transitions */
 .page-transition {
   position: relative;
@@ -256,15 +255,19 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), 
-              height 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform, height;
+  background-color: var(--black);
+  transition: height 1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, height, opacity;
 }
 
 .fullscreen-hero.scrolled {
   position: relative;
-  height: auto;
+  height: 0;
+  opacity: 0;
   transform: translateY(0);
+  pointer-events: none;
 }
 
 .fullscreen-hero-content {
@@ -283,42 +286,29 @@ html {
   height: 100%;
   position: relative;
   overflow: hidden;
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-image-container.scrolled {
-  height: auto;
-  border-radius: 0.5rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  opacity: 0;
 }
 
 .hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.hero-image.scrolled {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
   transform: scale(1.05);
 }
 
-.hero-text-container {
-  position: absolute;
-  bottom: -100px;
-  left: 0;
-  width: 100%;
-  padding: 2rem;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease, bottom 1s ease;
-  z-index: 10;
+.hero-image.loaded {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.hero-text-container.visible {
-  bottom: 0;
-  opacity: 1;
-  transform: translateY(0);
+.hero-image.scrolled {
+  opacity: 0;
 }
 
 .scroll-down-arrow {

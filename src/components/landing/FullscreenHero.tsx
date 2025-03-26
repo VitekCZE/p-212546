@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect, useRef } from "react";
 
 const FullscreenHero: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [textVisible, setTextVisible] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [arrowVisible, setArrowVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -19,10 +20,8 @@ const FullscreenHero: React.FC = () => {
       
       if (scrollY > threshold) {
         setScrolled(true);
-        setTextVisible(true);
       } else {
         setScrolled(false);
-        // Keep text visible once it's shown
       }
     };
 
@@ -45,6 +44,10 @@ const FullscreenHero: React.FC = () => {
     });
   };
 
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
   return (
     <div 
       ref={heroRef}
@@ -55,22 +58,9 @@ const FullscreenHero: React.FC = () => {
           <img 
             src="/lovable-uploads/5032a47a-1c9a-4399-8639-512873d1bf23.png" 
             alt="Mission Box Holobox" 
-            className={`hero-image ${scrolled ? 'scrolled' : ''}`}
+            className={`hero-image ${scrolled ? 'scrolled' : ''} ${imageLoaded ? 'loaded' : ''}`}
+            onLoad={handleImageLoad}
           />
-          
-          <div className={`hero-text-container ${textVisible ? 'visible' : ''}`}>
-            <h1 className="text-[32px] font-bold mb-4 text-white">
-              Upoutejte pozornost v nové dimenzi pomocí holografie!
-            </h1>
-            <h2 className="text-2xl mb-6 text-white/90">
-              Půjčte si na svou akci ho lobox od Mission box
-            </h2>
-            <a href="#contact-form" className="inline-block">
-              <button className="cta-button box-border text-[color:var(--white)] text-xl uppercase cursor-pointer bg-[color:var(--purple)] m-0 px-[24px] py-[15px] border-[none]">
-                Nezávazná konzultace
-              </button>
-            </a>
-          </div>
         </div>
         
         <div 

@@ -9,6 +9,7 @@ import ContactForm from "@/components/landing/ContactForm";
 import Footer from "@/components/landing/Footer";
 import HeroEntrance from "@/components/landing/HeroEntrance";
 import FullscreenHero from "@/components/landing/FullscreenHero";
+import Hero from "@/components/landing/Hero";
 import "@/lib/variables.css";
 
 const Index: React.FC = () => {
@@ -53,6 +54,7 @@ const Index: React.FC = () => {
         <main>
           <FullscreenHero />
           <div style={{ marginTop: '100vh' }}> {/* Spacer to accommodate fullscreen hero */}
+            <Hero />
             <AboutSection />
             <ServicesSection />
             <ProductTypes />
