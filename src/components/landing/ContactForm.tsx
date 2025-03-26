@@ -62,7 +62,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section className="box-border bg-[color:var(--dark-gray)] mx-[120px] my-20 p-16 rounded-2xl max-md:mx-10 max-md:p-10 max-sm:mx-5 max-sm:p-5">
+    <section id="contact-form" className="box-border bg-[color:var(--dark-gray)] mx-[120px] my-20 p-16 rounded-2xl max-md:mx-10 max-md:p-10 max-sm:mx-5 max-sm:p-5">
       <div className="box-border flex gap-8 m-0 p-0 max-md:flex-col">
         <div className="box-border max-w-[423px] m-0 p-0 max-md:max-w-full">
           <h2 className="box-border text-[color:var(--purple)] text-5xl leading-[56px] mb-5 m-0 p-0">

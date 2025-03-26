@@ -38,9 +38,11 @@ const Header: React.FC = () => {
               {item.text}
             </Link>
           ))}
-          <button className="box-border text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] m-0 px-5 py-3">
-            Nezávazná konzultace
-          </button>
+          <a href="#contact-form" className="box-border">
+            <button className="box-border text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] m-0 px-5 py-3 transition-all hover:bg-[color:var(--purple)]/80">
+              Nezávazná konzultace
+            </button>
+          </a>
         </div>
         
         {/* Mobile Menu */}
@@ -63,9 +65,13 @@ const Header: React.FC = () => {
                     {item.text}
                   </Link>
                 ))}
-                <button className="text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] px-5 py-3 self-start">
+                <a 
+                  href="#contact-form" 
+                  onClick={() => setOpen(false)}
+                  className="text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] px-5 py-3 self-start"
+                >
                   Nezávazná konzultace
-                </button>
+                </a>
               </div>
             </DrawerContent>
           </Drawer>

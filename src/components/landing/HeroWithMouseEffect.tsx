@@ -1,7 +1,11 @@
 
-import React from "react";
+import React, { useRef } from "react";
+import { useMouseEffect } from "@/hooks/use-mouse-effect";
 
-const Hero: React.FC = () => {
+const HeroWithMouseEffect: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  useMouseEffect(containerRef);
+
   return (
     <section className="box-border relative m-0 px-[120px] py-[80px] max-md:p-10 max-sm:p-5">
       <div className="flex flex-col md:flex-row items-center justify-between">
@@ -18,18 +22,18 @@ const Hero: React.FC = () => {
             </button>
           </a>
         </div>
-        <div className="relative group">
+        <div ref={containerRef} className="relative group">
           <img 
             src="/lovable-uploads/5032a47a-1c9a-4399-8639-512873d1bf23.png" 
             alt="Mission Box Holobox" 
-            className="w-full max-w-[600px] h-auto"
+            className="w-full max-w-[600px] h-auto z-10 relative"
           />
           <div className="absolute -inset-0.5 bg-gradient-to-r from-[color:var(--purple)] to-[color:var(--green)] rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-300"></div>
-          <div className="mouse-cursor absolute w-40 h-40 rounded-full border-2 border-[color:var(--purple)] opacity-0 pointer-events-none"></div>
+          <div className="mouse-cursor absolute w-40 h-40 rounded-full border-2 border-[color:var(--purple)] opacity-0 pointer-events-none transition-all duration-200 ease-out"></div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Hero;
+export default HeroWithMouseEffect;

@@ -1,6 +1,7 @@
+
 import React from "react";
 import Header from "@/components/landing/Header";
-import Hero from "@/components/landing/Hero";
+import HeroWithMouseEffect from "@/components/landing/HeroWithMouseEffect";
 import AboutSection from "@/components/landing/AboutSection";
 import ServicesSection from "@/components/landing/ServicesSection";
 import ProductTypes from "@/components/landing/ProductTypes";
@@ -14,7 +15,7 @@ const Index: React.FC = () => {
     <div className="max-w-[1440px] box-border w-full overflow-hidden mx-auto my-0 p-0 max-md:max-w-[991px] max-sm:max-w-screen-sm bg-[color:var(--black)] text-[color:var(--white)]">
       <Header />
       <main>
-        <Hero />
+        <HeroWithMouseEffect />
         <AboutSection />
         <ServicesSection />
         <ProductTypes />
