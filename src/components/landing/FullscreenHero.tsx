@@ -13,7 +13,7 @@ const FullscreenHero: React.FC = () => {
     
     const arrowTimer = setTimeout(() => {
       setArrowVisible(true);
-    }, 1500);
+    }, 3000); // Changed from 1500ms to 3000ms (3 seconds)
 
     // Handle scroll events to transition the hero
     const handleScroll = () => {
