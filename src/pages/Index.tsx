@@ -47,22 +47,24 @@ const Index: React.FC = () => {
   }, []);
 
   return (
-    <div className="max-w-[1440px] box-border w-full overflow-hidden mx-auto my-0 p-0 max-md:max-w-[991px] max-sm:max-w-screen-sm bg-[color:var(--black)] text-[color:var(--white)]">
-      {showEntrance && <HeroEntrance />}
-      <div style={{ visibility: initialLoadComplete ? 'visible' : 'hidden' }}>
-        <Header />
-        <main>
-          <FullscreenHero />
-          <div style={{ marginTop: '100vh' }}> {/* Spacer to accommodate fullscreen hero */}
-            <Hero />
-            <AboutSection />
-            <ServicesSection />
-            <ProductTypes />
-            <References />
-            <ContactForm />
-          </div>
-        </main>
-        <Footer />
+    <div className="relative w-full min-h-screen bg-black overflow-hidden">
+      <div className="max-w-[1440px] box-border w-full overflow-hidden mx-auto my-0 p-0 max-md:max-w-[991px] max-sm:max-w-screen-sm bg-[color:var(--black)] text-[color:var(--white)]">
+        {showEntrance && <HeroEntrance />}
+        <div style={{ visibility: initialLoadComplete ? 'visible' : 'hidden' }}>
+          <Header />
+          <main>
+            <FullscreenHero />
+            <div style={{ marginTop: '100vh' }}> {/* Spacer to accommodate fullscreen hero */}
+              <Hero />
+              <AboutSection />
+              <ServicesSection />
+              <ProductTypes />
+              <References />
+              <ContactForm />
+            </div>
+          </main>
+          <Footer />
+        </div>
       </div>
     </div>
   );
