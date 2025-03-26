@@ -66,6 +66,22 @@
   opacity: 0.6;
 }
 
+/* Header animations */
+.header-animate-in {
+  animation: slideInFromTop 0.5s ease forwards;
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 /* Button animations */
 .cta-button {
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 

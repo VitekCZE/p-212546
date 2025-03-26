@@ -35,10 +35,8 @@ const Index: React.FC = () => {
   return (
     <div className="relative w-full min-h-screen bg-black overflow-hidden">
       <div className="max-w-[1440px] box-border w-full overflow-hidden mx-auto my-0 p-0 max-md:max-w-[991px] max-sm:max-w-screen-sm bg-[color:var(--black)] text-[color:var(--white)]">
-        {/* Header is always visible, with higher z-index than hero */}
-        <div className="relative z-10">
-          <Header />
-        </div>
+        {/* Header will be fixed and handle its own positioning */}
+        <Header />
         
         {/* Main content */}
         <div style={{ visibility: initialLoadComplete ? 'visible' : 'hidden' }}>
