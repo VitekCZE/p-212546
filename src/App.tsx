@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import HoloboxTypes from "./pages/HoloboxTypes";
 import References from "./pages/References";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import "./lib/animations.css";
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/typy-holoboxu" element={<HoloboxTypes />} />
           <Route path="/reference" element={<References />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

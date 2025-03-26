@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     { text: "typy holoboxů", link: "/typy-holoboxu" },
     { text: "CO NABÍZÍME", link: "/" },
     { text: "rEFERENCE", link: "/reference" },
-    { text: "FAQs", link: "/" },
+    { text: "FAQs", link: "/faq" },
   ];
 
   return (
