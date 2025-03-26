@@ -24,6 +24,15 @@ const Index: React.FC = () => {
     if (isNavigatingBack) {
       setShowEntrance(false);
     }
+
+    // Also check for session storage flag to avoid playing the video multiple times
+    const hasSeenVideo = sessionStorage.getItem('hasSeenIntroVideo');
+    if (hasSeenVideo) {
+      setShowEntrance(false);
+    } else {
+      // Set flag to avoid playing again during this session
+      sessionStorage.setItem('hasSeenIntroVideo', 'true');
+    }
   }, []);
 
   return (
