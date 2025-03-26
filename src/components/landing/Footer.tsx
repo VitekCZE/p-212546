@@ -1,4 +1,6 @@
+
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
@@ -13,12 +15,12 @@ const Footer: React.FC = () => {
       </div>
       <div className="box-border flex justify-between items-start m-0 p-0 max-sm:flex-col max-sm:gap-5">
         <div className="box-border flex flex-col gap-8 m-0 p-0">
-          <button className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
+          <Link to="/" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
             Co je mission box?
-          </button>
-          <button className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
+          </Link>
+          <Link to="/typy-holoboxu" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
             TYPY HOLOBOXŮ
-          </button>
+          </Link>
           <button className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
             CO NABÍZÍME
           </button>

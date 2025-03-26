@@ -1,4 +1,6 @@
+
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface ProductTypeProps {
   imageUrl: string;
@@ -6,6 +8,7 @@ interface ProductTypeProps {
   title: string;
   description: string;
   buttonText: string;
+  linkTo: string;
 }
 
 const ProductTypeCard: React.FC<ProductTypeProps> = ({
@@ -14,6 +17,7 @@ const ProductTypeCard: React.FC<ProductTypeProps> = ({
   title,
   description,
   buttonText,
+  linkTo,
 }) => {
   return (
     <div className="box-border text-center max-w-[352px] m-0 p-0 max-sm:max-w-full">
@@ -26,9 +30,12 @@ const ProductTypeCard: React.FC<ProductTypeProps> = ({
       <p className="box-border text-lg leading-[1.7] mb-[30px] m-0 p-0">
         {description}
       </p>
-      <button className="box-border text-[color:var(--black)] text-base cursor-pointer m-0 px-5 py-2.5 border-[none]">
+      <Link 
+        to={linkTo} 
+        className="box-border text-[color:var(--black)] text-base cursor-pointer m-0 px-5 py-2.5 border-[none] inline-block"
+      >
         {buttonText}
-      </button>
+      </Link>
     </div>
   );
 };
@@ -43,6 +50,7 @@ const ProductTypes: React.FC = () => {
       description:
         "Díky velkoformátové holografické projekci je Human Size ideální pro prezentaci člověka v reálné velikosti - ať už se jedná o přenesení známé osobnosti, představení módních kolekcí, interaktivní asistence nebo zprostředkování virtuálních přednášek.",
       buttonText: "Více o human size",
+      linkTo: "/typy-holoboxu#human-size",
     },
     {
       imageUrl:
@@ -52,6 +60,7 @@ const ProductTypes: React.FC = () => {
       description:
         "Revoluční spojení holografie a dotykového rozhraní přináší nový rozměr nakupování, kde si zákazníci mohou produkt detailně prohlédnout ze všech stran. Perfektní pro retailové prostory, e-commerce showroomy nebo specializované butiky, kde záleží na vizuální prezentaci produktů.",
       buttonText: "Více o mEDIUM BOX",
+      linkTo: "/typy-holoboxu#product-fit",
     },
     {
       imageUrl:
@@ -61,6 +70,7 @@ const ProductTypes: React.FC = () => {
       description:
         "Perfektní řešení pro menší showroomy a výlohy, kde každý centimetr hraje roli. Kompaktní rozměry v kombinaci s působivou holografickou projekcí přitáhnou pozornost zákazníků a promění každý produkt v poutavý holografický zážitek..",
       buttonText: "Více o Product fit",
+      linkTo: "/typy-holoboxu#mini-box",
     },
   ];
 
@@ -78,6 +88,7 @@ const ProductTypes: React.FC = () => {
             title={product.title}
             description={product.description}
             buttonText={product.buttonText}
+            linkTo={product.linkTo}
           />
         ))}
       </div>
