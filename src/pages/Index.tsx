@@ -9,7 +9,6 @@ import ContactForm from "@/components/landing/ContactForm";
 import Footer from "@/components/landing/Footer";
 import FullscreenHero from "@/components/landing/FullscreenHero";
 import Hero from "@/components/landing/Hero";
-import HeroEntrance from "@/components/landing/HeroEntrance";
 import "@/lib/variables.css";
 
 const Index: React.FC = () => {
@@ -20,10 +19,10 @@ const Index: React.FC = () => {
     // Enable scrolling for this page
     document.body.style.overflow = 'auto';
     
-    // Set initial load as complete after a delay to allow HeroEntrance to complete
+    // Set initial load as complete after a delay to match the loading experience
     setTimeout(() => {
       setInitialLoadComplete(true);
-    }, 16000); // Wait for HeroEntrance to complete (15s) + a bit extra
+    }, 3000); // Reduced to 3s since we're now allowing scrolling with the background video
     
     // Add animation classes to staggered items after page loads
     setTimeout(() => {
@@ -32,7 +31,7 @@ const Index: React.FC = () => {
           el.classList.add('is-visible');
         }, 150 * index);
       });
-    }, 16300); // Wait for initialLoadComplete + a bit
+    }, 3300); // Wait for initialLoadComplete + a bit
   }, []);
 
   return (
@@ -41,11 +40,8 @@ const Index: React.FC = () => {
         {/* Header will be fixed and handle its own positioning */}
         <Header />
         
-        {/* Entrance animation */}
-        <HeroEntrance />
-        
-        {/* Main content */}
-        <div style={{ visibility: initialLoadComplete ? 'visible' : 'hidden' }}>
+        {/* Main content - now immediately visible */}
+        <div style={{ visibility: initialLoadComplete ? 'visible' : 'visible' }}>
           <main>
             <FullscreenHero />
             <div style={{ marginTop: '100vh' }}> {/* Spacer to accommodate fullscreen hero */}
