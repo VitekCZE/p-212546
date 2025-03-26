@@ -24,6 +24,12 @@ const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) =
     <div
       className={`page-transition ${transitionStage}`}
       onAnimationEnd={handleAnimationEnd}
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        backgroundColor: transitionStage === "fadeOut" ? "black" : "transparent"
+      }}
     >
       {children}
     </div>
