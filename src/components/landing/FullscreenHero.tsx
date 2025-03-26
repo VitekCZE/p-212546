@@ -8,10 +8,12 @@ const FullscreenHero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Show scroll arrow after 3 seconds
+    // Show image and scroll arrow after a short delay
+    setImageLoaded(true);
+    
     const arrowTimer = setTimeout(() => {
       setArrowVisible(true);
-    }, 3000);
+    }, 1500);
 
     // Handle scroll events to transition the hero
     const handleScroll = () => {
@@ -44,10 +46,6 @@ const FullscreenHero: React.FC = () => {
     });
   };
 
-  const handleImageLoad = () => {
-    setImageLoaded(true);
-  };
-
   return (
     <div 
       ref={heroRef}
@@ -59,7 +57,6 @@ const FullscreenHero: React.FC = () => {
             src="/lovable-uploads/5032a47a-1c9a-4399-8639-512873d1bf23.png" 
             alt="Mission Box Holobox" 
             className={`hero-image ${scrolled ? 'scrolled' : ''} ${imageLoaded ? 'loaded' : ''}`}
-            onLoad={handleImageLoad}
           />
         </div>
         
