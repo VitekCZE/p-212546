@@ -20,10 +20,10 @@ const Index: React.FC = () => {
     // Enable scrolling for this page
     document.body.style.overflow = 'auto';
     
-    // Set initial load as complete after a short delay to allow HeroEntrance to complete
+    // Set initial load as complete after a delay to allow HeroEntrance to complete
     setTimeout(() => {
       setInitialLoadComplete(true);
-    }, 8000); // Wait for HeroEntrance to complete + a bit extra
+    }, 16000); // Wait for HeroEntrance to complete (15s) + a bit extra
     
     // Add animation classes to staggered items after page loads
     setTimeout(() => {
@@ -32,7 +32,7 @@ const Index: React.FC = () => {
           el.classList.add('is-visible');
         }, 150 * index);
       });
-    }, 8300); // Wait for initialLoadComplete + a bit
+    }, 16300); // Wait for initialLoadComplete + a bit
   }, []);
 
   return (

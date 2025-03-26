@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,8 +51,8 @@ const Header: React.FC = () => {
 
   return (
     <div 
-      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-500 ${
-        visible ? 'translate-y-0' : '-translate-y-full'
+      className={`fixed ${isMobile ? 'bottom-0' : 'top-0'} left-0 right-0 w-full z-50 transition-all duration-500 ${
+        visible ? (isMobile ? 'translate-y-0' : 'translate-y-0') : (isMobile ? 'translate-y-full' : '-translate-y-full')
       } ${
         scrolled ? 'bg-black/90 backdrop-blur-sm shadow-lg' : 'bg-transparent'
       }`}

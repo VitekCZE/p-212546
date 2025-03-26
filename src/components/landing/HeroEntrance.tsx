@@ -7,7 +7,7 @@ const HeroEntrance: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Start exit animation after about 6 seconds
+    // Start exit animation after 15 seconds
     const exitTimer = setTimeout(() => {
       setIsExiting(true);
       
@@ -15,10 +15,16 @@ const HeroEntrance: React.FC = () => {
       const removeTimer = setTimeout(() => {
         setAnimationComplete(true);
         document.body.style.overflow = 'auto'; // Re-enable scrolling
+        
+        // Automatically scroll to hero section
+        const heroSection = document.querySelector('.fullscreen-hero');
+        if (heroSection) {
+          heroSection.scrollIntoView({ behavior: 'smooth' });
+        }
       }, 1000); // Match the duration of the exit animation
       
       return () => clearTimeout(removeTimer);
-    }, 7000); // Increased time to allow for video to play a bit longer
+    }, 15000); // Extended to 15 seconds as requested
     
     // Prevent scrolling during animation
     document.body.style.overflow = 'hidden';
@@ -55,7 +61,7 @@ const HeroEntrance: React.FC = () => {
         <iframe 
           width="100%" 
           height="100%" 
-          src="https://www.youtube.com/embed/1Cggr7g-TX4?autoplay=1&controls=0&showinfo=0&rel=0&loop=1&mute=0&start=0&playlist=1Cggr7g-TX4" 
+          src="https://www.youtube.com/embed/1Cggr7g-TX4?autoplay=1&controls=0&showinfo=0&rel=0&loop=1&mute=1&start=0&playlist=1Cggr7g-TX4" 
           title="Mission Box Hologram"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
