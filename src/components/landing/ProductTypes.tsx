@@ -42,7 +42,7 @@ const ProductTypeCard: React.FC<ProductTypeProps> = ({
 const ProductTypes: React.FC = () => {
   const productTypes = [
     {
-      imageUrl: "/lovable-uploads/d883bf61-a31d-48d1-be0c-817c7fb03e13.png",
+      imageUrl: "/lovable-uploads/a58221ea-5dcd-4e00-bc9a-bc2a41582e94.png",
       altText: "Human size holobox",
       title: "HUMAN SIZE",
       description:
@@ -51,7 +51,7 @@ const ProductTypes: React.FC = () => {
       linkTo: "/typy-holoboxu#human-size",
     },
     {
-      imageUrl: "/lovable-uploads/cc6d0b30-7d9b-4671-940a-2a84be1a70e6.png",
+      imageUrl: "/lovable-uploads/f0e4cdbf-4348-4c35-921b-70e161e8716c.png",
       altText: "Product fit holobox",
       title: "PRODUCT FIT",
       description:
@@ -60,7 +60,7 @@ const ProductTypes: React.FC = () => {
       linkTo: "/typy-holoboxu#product-fit",
     },
     {
-      imageUrl: "/lovable-uploads/4869c351-3acc-464a-b76f-ea5cf8f0704d.png",
+      imageUrl: "/lovable-uploads/9091b34a-427d-4e92-a87c-7f302d92d8cb.png",
       altText: "Mini box holobox",
       title: "MINI BOX",
       description:

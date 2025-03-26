@@ -22,7 +22,7 @@ const HoloboxTypes: React.FC = () => {
             name="HUMAN SIZE"
             description="Díky velkoformátové projekci a pokročilé technologii dosáhne prezentace živoucnosti, kterou nikde jinde neuvidíte. Holobox je ideální pro přenos holografické prezentace člověka v reálné velikosti. Holografické prezentace s dotykovým ovládáním navíc může vaše návštěvníky nadchnout a přivést k prezentovaným výrobkům."
             note="Holobox Human Size je také velmi efektivní pro komerční / přímou komunikaci s publikem v reálném čase."
-            imageUrl="/lovable-uploads/d883bf61-a31d-48d1-be0c-817c7fb03e13.png"
+            imageUrl="/lovable-uploads/a58221ea-5dcd-4e00-bc9a-bc2a41582e94.png"
             imagePosition="right"
             specs={[
               "Označení monitoru 65 palová (165 cm)",
@@ -39,7 +39,7 @@ const HoloboxTypes: React.FC = () => {
             id="product-fit"
             name="PRODUCT FIT"
             description="Možnost do detailu se seznámit, lépe chápat a objevovat zákazníky pomocí prezentace s použitím holografiky přímo produktů. Holografické prezentace s dotykovým ovládáním všeho demenších modelů, co zobrazujete či plánujete do prezentovat představuje unikátnost, komerční úspěch či příjemný bonus pro vaše zákazníky nebo návštěvníky. Holografie předmětů přesáhuje hranice vaší představivosti."
-            imageUrl="/lovable-uploads/cc6d0b30-7d9b-4671-940a-2a84be1a70e6.png"
+            imageUrl="/lovable-uploads/f0e4cdbf-4348-4c35-921b-70e161e8716c.png"
             imagePosition="right"
             specs={[
               "Označení monitoru 42 palcová (104cm)",
@@ -55,7 +55,7 @@ const HoloboxTypes: React.FC = () => {
             id="mini-box"
             name="MINI BOX"
             description="Působivá holografická projekce dokumentů, knih, či příručí i dalších vytištěných materiálů, které mohou být součástí, třeba vašeho cílového snažení ve showroomech, ale i na pultech a výlohy. Mini velikost přitáhne pozornost kolemjdoucích, umožní jejich zapojení a zviditelnění. Ať už se jedná o sběratelské předměty, módní doplňky, drahé šperky či technické novinky rozptýlení prostředkých tvarů. Pokud hledáte něco, co ihned uchvátí, jste na správné cestě."
-            imageUrl="/lovable-uploads/4869c351-3acc-464a-b76f-ea5cf8f0704d.png"
+            imageUrl="/lovable-uploads/9091b34a-427d-4e92-a87c-7f302d92d8cb.png"
             imagePosition="right"
             specs={[
               "32 palcová (84cm)",
