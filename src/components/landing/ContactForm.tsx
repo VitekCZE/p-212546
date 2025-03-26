@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 interface FormData {
@@ -252,7 +253,7 @@ const ContactForm: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="box-border text-[color:var(--white)] text-xl font-bold cursor-pointer bg-[color:var(--purple)] mt-5 m-0 p-4 border-[none]"
+            className="cta-button box-border text-[color:var(--white)] text-xl font-bold cursor-pointer bg-[color:var(--purple)] mt-5 m-0 p-4 border-[none]"
           >
             ODESLAT POPTÁVKU
           </button>

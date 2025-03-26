@@ -1,21 +1,33 @@
 
-import { useEffect, RefObject } from 'react';
+import { useEffect } from 'react';
 
-export function useMouseEffect(containerRef: RefObject<HTMLElement>) {
+export function useMouseEffect() {
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    // Create cursor element if it doesn't exist
+    let cursor = document.querySelector('.mouse-cursor') as HTMLElement;
     
-    const cursor = container.querySelector('.mouse-cursor') as HTMLElement;
-    if (!cursor) return;
+    if (!cursor) {
+      cursor = document.createElement('div');
+      cursor.classList.add('mouse-cursor');
+      document.body.appendChild(cursor);
+    }
+    
+    // Initialize cursor styles
+    cursor.style.position = 'fixed';
+    cursor.style.width = '80px';
+    cursor.style.height = '80px';
+    cursor.style.borderRadius = '50%';
+    cursor.style.border = '2px solid var(--purple)';
+    cursor.style.opacity = '0';
+    cursor.style.zIndex = '9999';
+    cursor.style.pointerEvents = 'none';
     
     const onMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const x = e.clientX;
+      const y = e.clientY;
       
       cursor.style.opacity = '1';
-      cursor.style.transform = `translate(${x - 80}px, ${y - 80}px)`;
+      cursor.style.transform = `translate(${x - 40}px, ${y - 40}px)`;
     };
     
     const onMouseLeave = () => {
@@ -26,14 +38,19 @@ export function useMouseEffect(containerRef: RefObject<HTMLElement>) {
       cursor.style.opacity = '1';
     };
     
-    container.addEventListener('mousemove', onMouseMove);
-    container.addEventListener('mouseleave', onMouseLeave);
-    container.addEventListener('mouseenter', onMouseEnter);
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseleave', onMouseLeave);
+    document.addEventListener('mouseenter', onMouseEnter);
     
     return () => {
-      container.removeEventListener('mousemove', onMouseMove);
-      container.removeEventListener('mouseleave', onMouseLeave);
-      container.removeEventListener('mouseenter', onMouseEnter);
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseleave', onMouseLeave);
+      document.removeEventListener('mouseenter', onMouseEnter);
+      
+      // Optional: Remove the cursor element on cleanup
+      // if (cursor && cursor.parentNode) {
+      //   cursor.parentNode.removeChild(cursor);
+      // }
     };
-  }, [containerRef]);
+  }, []);
 }

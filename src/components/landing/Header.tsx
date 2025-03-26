@@ -39,7 +39,7 @@ const Header: React.FC = () => {
             </Link>
           ))}
           <a href="#contact-form" className="box-border">
-            <button className="box-border text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] m-0 px-5 py-3 transition-all hover:bg-[color:var(--purple)]/80">
+            <button className="cta-button box-border text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] m-0 px-5 py-3 transition-all hover:bg-[color:var(--purple)]/80">
               Nezávazná konzultace
             </button>
           </a>
@@ -68,7 +68,7 @@ const Header: React.FC = () => {
                 <a 
                   href="#contact-form" 
                   onClick={() => setOpen(false)}
-                  className="text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] px-5 py-3 self-start"
+                  className="cta-button text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] px-5 py-3 self-start"
                 >
                   Nezávazná konzultace
                 </a>

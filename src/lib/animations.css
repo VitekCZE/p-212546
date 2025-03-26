@@ -1,40 +1,24 @@
 
-/* Page transitions */
-.page-transition {
-  position: relative;
-}
-
-.fadeIn {
-  animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-.fadeOut {
-  animation: fadeOut 0.5s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
+/* Page transitions - removed */
 
 /* Mouse follower animation */
 .mouse-cursor {
   transition: transform 0.2s ease-out, opacity 0.3s ease-out;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+/* Button animations */
+.cta-button {
+  transition: transform 0.2s ease-out, box-shadow 0.3s ease-out;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(175, 127, 227, 0.3);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(175, 127, 227, 0.2);
 }
