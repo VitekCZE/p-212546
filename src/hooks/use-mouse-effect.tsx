@@ -14,11 +14,11 @@ export function useMouseEffect() {
     
     // Initialize cursor styles
     cursor.style.position = 'fixed';
-    cursor.style.width = '80px';
-    cursor.style.height = '80px';
+    cursor.style.width = '20px';
+    cursor.style.height = '20px';
     cursor.style.borderRadius = '50%';
-    cursor.style.border = '2px solid var(--purple)';
-    cursor.style.opacity = '0';
+    cursor.style.backgroundColor = 'var(--purple)';
+    cursor.style.opacity = '0.7';
     cursor.style.zIndex = '9999';
     cursor.style.pointerEvents = 'none';
     cursor.style.transition = 'transform 0.15s ease-out, width 0.2s ease, height 0.2s ease, opacity 0.3s ease-out';
@@ -26,37 +26,17 @@ export function useMouseEffect() {
     // Track mouse velocity for dynamic cursor size
     let mouseX = 0;
     let mouseY = 0;
-    let lastX = 0;
-    let lastY = 0;
-    let velocity = 0;
     
     const onMouseMove = (e: MouseEvent) => {
       const x = e.clientX;
       const y = e.clientY;
       
-      // Calculate velocity (distance moved since last frame)
-      const deltaX = x - lastX;
-      const deltaY = y - lastY;
-      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-      
-      // Update position with smoothing
+      // Update position
       mouseX = x;
       mouseY = y;
       
-      // Update velocity with smoothing
-      velocity = Math.min(distance, 50);
-      
-      // Dynamic cursor size based on velocity
-      const size = Math.max(60, 60 + velocity * 0.6);
-      
-      cursor.style.opacity = '1';
-      cursor.style.width = `${size}px`;
-      cursor.style.height = `${size}px`;
-      cursor.style.transform = `translate(${x - size/2}px, ${y - size/2}px)`;
-      
-      // Store current position for next frame
-      lastX = x;
-      lastY = y;
+      cursor.style.opacity = '0.7';
+      cursor.style.transform = `translate(${x - 10}px, ${y - 10}px)`;
     };
     
     // Enhance interaction with interactive elements
@@ -65,20 +45,17 @@ export function useMouseEffect() {
       
       if (target.tagName === 'BUTTON' || target.tagName === 'A' || 
           target.closest('button') || target.closest('a')) {
-        cursor.style.width = '50px';
-        cursor.style.height = '50px';
-        cursor.style.backgroundColor = 'rgba(175, 127, 227, 0.1)';
-        cursor.style.mixBlendMode = 'normal';
+        cursor.style.width = '25px';
+        cursor.style.height = '25px';
+        cursor.style.opacity = '0.8';
       } else if (target.tagName === 'IMG' || target.closest('img')) {
         // Add pulsing effect on image hover
-        cursor.style.width = '70px';
-        cursor.style.height = '70px';
-        cursor.style.backgroundColor = 'rgba(175, 127, 227, 0.15)';
-        cursor.style.mixBlendMode = 'normal';
+        cursor.style.width = '30px';
+        cursor.style.height = '30px';
         cursor.style.animation = 'pulse-cursor 1.5s infinite';
       } else {
-        cursor.style.backgroundColor = 'transparent';
-        cursor.style.mixBlendMode = 'difference';
+        cursor.style.width = '20px';
+        cursor.style.height = '20px';
         cursor.style.animation = 'none';
       }
     };
@@ -88,7 +65,7 @@ export function useMouseEffect() {
     };
     
     const onMouseEnter = () => {
-      cursor.style.opacity = '1';
+      cursor.style.opacity = '0.7';
     };
     
     document.addEventListener('mousemove', onMouseMove);
