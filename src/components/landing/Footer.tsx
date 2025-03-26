@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="box-border bg-[color:var(--black)] m-0 px-[120px] py-10 border-t-[rgba(255,255,255,0.2)] border-t border-solid max-md:p-10 max-sm:p-5">
       <div className="mb-10">
-        <img src="/lovable-uploads/1096cc92-15e1-4489-b89f-2fe83cbb23ea.png" alt="Mission Box Logo" className="h-8" />
+        <img src="/lovable-uploads/606c2ccc-8919-4790-98c5-4b9fa0136ff0.png" alt="Mission Box Logo" className="h-8" />
       </div>
       <div className="box-border flex justify-between items-start m-0 p-0 max-sm:flex-col max-sm:gap-5">
         <div className="box-border flex flex-col gap-8 m-0 p-0">

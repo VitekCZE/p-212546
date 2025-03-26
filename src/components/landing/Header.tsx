@@ -19,7 +19,7 @@ const Header: React.FC = () => {
     <div className="box-border flex justify-between items-center m-0 px-[120px] py-10 max-md:p-10 max-sm:p-5">
       <div>
         <Link to="/">
-          <img src="/lovable-uploads/1096cc92-15e1-4489-b89f-2fe83cbb23ea.png" alt="Mission Box Logo" className="h-8" />
+          <img src="/lovable-uploads/606c2ccc-8919-4790-98c5-4b9fa0136ff0.png" alt="Mission Box Logo" className="h-8" />
         </Link>
       </div>
       <nav className="box-border flex items-center m-0 p-0">
