@@ -1,12 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from "react";
+import Header from "@/components/landing/Header";
+import Hero from "@/components/landing/Hero";
+import AboutSection from "@/components/landing/AboutSection";
+import ServicesSection from "@/components/landing/ServicesSection";
+import ProductTypes from "@/components/landing/ProductTypes";
+import References from "@/components/landing/References";
+import ContactForm from "@/components/landing/ContactForm";
+import Footer from "@/components/landing/Footer";
+import "@/lib/variables.css";
 
-const Index = () => {
+const Index: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="max-w-[1440px] box-border w-full overflow-hidden mx-auto my-0 p-0 max-md:max-w-[991px] max-sm:max-w-screen-sm bg-[color:var(--black)] text-[color:var(--white)]">
+      <Header />
+      <main>
+        <Hero />
+        <AboutSection />
+        <ServicesSection />
+        <ProductTypes />
+        <References />
+        <ContactForm />
+      </main>
+      <Footer />
     </div>
   );
 };
