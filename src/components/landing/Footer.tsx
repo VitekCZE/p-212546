@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 import { Instagram, Linkedin } from "lucide-react";
 
 const Footer: React.FC = () => {
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="box-border bg-[color:var(--black)] m-0 px-[120px] py-10 border-t-[rgba(255,255,255,0.2)] border-t border-solid max-md:p-10 max-sm:p-5">
       <div className="mb-10">
@@ -11,26 +19,30 @@ const Footer: React.FC = () => {
       </div>
       <div className="box-border flex justify-between items-start m-0 p-0 max-sm:flex-col max-sm:gap-5">
         <div className="box-border flex flex-col gap-8 m-0 p-0">
-          <Link to="/" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
+          <Link to="/" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0 hover:text-[color:var(--purple)] transition-colors">
             Co je mission box?
           </Link>
-          <Link to="/typy-holoboxu" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
+          <Link to="/typy-holoboxu" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0 hover:text-[color:var(--purple)] transition-colors">
             TYPY HOLOBOXŮ
           </Link>
-          <Link to="/" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
+          <Link to="/" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0 hover:text-[color:var(--purple)] transition-colors">
             CO NABÍZÍME
           </Link>
         </div>
         <div className="box-border flex flex-col gap-8 m-0 p-0">
-          <Link to="/reference" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
+          <Link to="/reference" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0 hover:text-[color:var(--purple)] transition-colors">
             Reference
           </Link>
-          <Link to="/faq" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
+          <Link to="/faq" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0 hover:text-[color:var(--purple)] transition-colors">
             FAQs
           </Link>
-          <Link to="/" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
+          <a 
+            href="#contact-form" 
+            onClick={handleContactClick}
+            className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0 hover:text-[color:var(--purple)] transition-colors"
+          >
             kontakt
-          </Link>
+          </a>
         </div>
         <div className="box-border m-0 p-0">
           <div className="box-border flex gap-[15px] m-0 p-0">

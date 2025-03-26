@@ -7,6 +7,15 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
 
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setOpen(false);
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const navItems = [
     { text: "Co je mission box", link: "/" },
     { text: "typy holoboxů", link: "/typy-holoboxu" },
@@ -28,13 +37,13 @@ const Header: React.FC = () => {
             <Link
               key={index}
               to={item.link}
-              className="box-border text-base uppercase cursor-pointer m-0 p-0"
+              className="box-border text-base uppercase cursor-pointer m-0 p-0 hover:text-[color:var(--purple)] transition-colors"
             >
               {item.text}
             </Link>
           ))}
-          <a href="#contact-form" className="box-border">
-            <button className="cta-button box-border text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] m-0 px-5 py-3 transition-all hover:bg-[color:var(--purple)]/80">
+          <a href="#contact-form" onClick={handleContactClick} className="box-border">
+            <button className="cta-button box-border text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] m-0 px-5 py-3 border-[none]">
               Nezávazná konzultace
             </button>
           </a>
@@ -54,7 +63,7 @@ const Header: React.FC = () => {
                   <Link
                     key={index}
                     to={item.link}
-                    className="text-base uppercase"
+                    className="text-base uppercase hover:text-[color:var(--purple)] transition-colors"
                     onClick={() => setOpen(false)}
                   >
                     {item.text}
@@ -62,10 +71,12 @@ const Header: React.FC = () => {
                 ))}
                 <a 
                   href="#contact-form" 
-                  onClick={() => setOpen(false)}
-                  className="cta-button text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] px-5 py-3 self-start"
+                  onClick={handleContactClick}
+                  className="inline-block"
                 >
-                  Nezávazná konzultace
+                  <button className="cta-button text-[color:var(--white)] text-[13px] uppercase bg-[color:var(--purple)] px-5 py-3 border-[none]">
+                    Nezávazná konzultace
+                  </button>
                 </a>
               </div>
             </DrawerContent>

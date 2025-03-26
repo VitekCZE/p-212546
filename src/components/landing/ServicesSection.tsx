@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const ServiceItem: React.FC<{
@@ -59,6 +60,14 @@ const ServicesSection: React.FC = () => {
     },
   ];
 
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="box-border m-0 px-[120px] py-20 max-md:p-10 max-sm:p-5">
       <h2 className="box-border text-[color:var(--purple)] text-5xl font-bold mb-10 m-0 p-0">
@@ -75,9 +84,11 @@ const ServicesSection: React.FC = () => {
           />
         ))}
       </div>
-      <button className="box-border text-[color:var(--white)] border-[color:var(--white)] text-xl uppercase cursor-pointer bg-[color:var(--purple)] m-0 px-[21px] py-[13px] border-[0.5px] border-solid">
-        Nezávazná konzultace
-      </button>
+      <a href="#contact-form" onClick={handleContactClick}>
+        <button className="cta-button box-border text-[color:var(--white)] text-xl uppercase cursor-pointer bg-[color:var(--purple)] m-0 px-[24px] py-[15px] border-[none]">
+          Nezávazná konzultace
+        </button>
+      </a>
     </section>
   );
 };

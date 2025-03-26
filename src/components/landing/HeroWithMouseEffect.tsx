@@ -5,6 +5,14 @@ import { useMouseEffect } from "@/hooks/use-mouse-effect";
 const HeroWithMouseEffect: React.FC = () => {
   useMouseEffect();
 
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="box-border relative m-0 px-[120px] py-[80px] max-md:p-10 max-sm:p-5">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -15,8 +23,8 @@ const HeroWithMouseEffect: React.FC = () => {
           <h2 className="box-border text-2xl mb-10 m-0 p-0 max-md:max-w-full">
             Půjčte si na svou akci ho lobox od Mission box
           </h2>
-          <a href="#contact-form" className="inline-block">
-            <button className="cta-button box-border text-[color:var(--white)] border-[color:var(--white)] text-xl uppercase cursor-pointer bg-[color:var(--purple)] m-0 px-[24px] py-[15px] border-[0.5px] border-solid transition-all hover:bg-[color:var(--purple)]/90">
+          <a href="#contact-form" onClick={handleContactClick} className="inline-block">
+            <button className="cta-button box-border text-[color:var(--white)] text-xl uppercase cursor-pointer bg-[color:var(--purple)] m-0 px-[24px] py-[15px] border-[none]">
               Nezávazná konzultace
             </button>
           </a>
