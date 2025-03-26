@@ -18,7 +18,7 @@ const HeroEntrance: React.FC = () => {
       }, 1000); // Match the duration of the exit animation
       
       return () => clearTimeout(removeTimer);
-    }, 5000);
+    }, 7000); // Increased time to allow for video to play a bit longer
     
     // Prevent scrolling during animation
     document.body.style.overflow = 'hidden';
@@ -35,13 +35,40 @@ const HeroEntrance: React.FC = () => {
     <div 
       ref={containerRef}
       className={`hero-entrance-container ${isExiting ? 'exiting' : ''}`}
+      style={{ 
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100vh',
+        zIndex: 9999,
+        backgroundColor: 'black',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden',
+        opacity: isExiting ? 0 : 1,
+        transition: 'opacity 1s ease'
+      }}
     >
-      <div className="hero-entrance-image-wrapper">
-        <img 
-          src="/lovable-uploads/5032a47a-1c9a-4399-8639-512873d1bf23.png" 
-          alt="Mission Box Hologram" 
-          className="hero-entrance-image"
-        />
+      <div className="hero-entrance-video-wrapper" style={{ width: '100%', height: '100%', position: 'relative' }}>
+        <iframe 
+          width="100%" 
+          height="100%" 
+          src="https://www.youtube.com/embed/1Cggr7g-TX4?autoplay=1&controls=0&showinfo=0&rel=0&loop=1&mute=0&start=0&playlist=1Cggr7g-TX4" 
+          title="Mission Box Hologram"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowFullScreen
+          style={{ 
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        ></iframe>
       </div>
     </div>
   );

@@ -9,18 +9,21 @@ import ContactForm from "@/components/landing/ContactForm";
 import Footer from "@/components/landing/Footer";
 import FullscreenHero from "@/components/landing/FullscreenHero";
 import Hero from "@/components/landing/Hero";
+import HeroEntrance from "@/components/landing/HeroEntrance";
 import "@/lib/variables.css";
 
 const Index: React.FC = () => {
-  const [initialLoadComplete, setInitialLoadComplete] = useState(true);
+  const [initialLoadComplete, setInitialLoadComplete] = useState(false);
 
   // Check if this is a fresh page load or a navigation from another page
   useEffect(() => {
     // Enable scrolling for this page
     document.body.style.overflow = 'auto';
     
-    // Set initial load as complete immediately
-    setInitialLoadComplete(true);
+    // Set initial load as complete after a short delay to allow HeroEntrance to complete
+    setTimeout(() => {
+      setInitialLoadComplete(true);
+    }, 8000); // Wait for HeroEntrance to complete + a bit extra
     
     // Add animation classes to staggered items after page loads
     setTimeout(() => {
@@ -29,7 +32,7 @@ const Index: React.FC = () => {
           el.classList.add('is-visible');
         }, 150 * index);
       });
-    }, 300);
+    }, 8300); // Wait for initialLoadComplete + a bit
   }, []);
 
   return (
@@ -37,6 +40,9 @@ const Index: React.FC = () => {
       <div className="max-w-[1440px] box-border w-full overflow-hidden mx-auto my-0 p-0 max-md:max-w-[991px] max-sm:max-w-screen-sm bg-[color:var(--black)] text-[color:var(--white)]">
         {/* Header will be fixed and handle its own positioning */}
         <Header />
+        
+        {/* Entrance animation */}
+        <HeroEntrance />
         
         {/* Main content */}
         <div style={{ visibility: initialLoadComplete ? 'visible' : 'hidden' }}>

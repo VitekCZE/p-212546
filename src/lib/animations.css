@@ -1,4 +1,3 @@
-
 /* Page transitions */
 .page-transition {
   position: relative;
@@ -293,5 +292,33 @@ html {
   100% {
     transform: translateX(-50%) translateY(0);
     box-shadow: 0 0 0 0 rgba(175, 127, 227, 0);
+  }
+}
+
+/* Hero entrance animation styles */
+.hero-entrance-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-entrance-container.exiting {
+  animation: fadeOut 1s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
