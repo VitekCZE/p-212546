@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSectionAnimation } from "@/hooks/use-section-animation";
 
 interface ProductTypeProps {
   imageUrl: string;
@@ -9,6 +10,7 @@ interface ProductTypeProps {
   description: string;
   buttonText: string;
   linkTo: string;
+  index: number;
 }
 
 const ProductTypeCard: React.FC<ProductTypeProps> = ({
@@ -18,9 +20,20 @@ const ProductTypeCard: React.FC<ProductTypeProps> = ({
   description,
   buttonText,
   linkTo,
+  index,
 }) => {
+  const cardRef = useSectionAnimation('section-scale-in', {
+    threshold: 0.1,
+    triggerOnce: true,
+    rootMargin: '-50px 0px'
+  });
+
   return (
-    <div className="box-border text-center max-w-[352px] m-0 p-0 max-sm:max-w-full">
+    <div 
+      ref={cardRef as React.RefObject<HTMLDivElement>}
+      className="box-border text-center max-w-[352px] m-0 p-0 max-sm:max-w-full"
+      style={{ transitionDelay: `${index * 150}ms` }}
+    >
       <img
         src={imageUrl}
         className="box-border w-full h-[328px] object-contain mb-[30px] m-0 p-0"
@@ -40,6 +53,8 @@ const ProductTypeCard: React.FC<ProductTypeProps> = ({
 };
 
 const ProductTypes: React.FC = () => {
+  const sectionRef = useSectionAnimation('section-fade-in');
+  
   const productTypes = [
     {
       imageUrl: "/lovable-uploads/a58221ea-5dcd-4e00-bc9a-bc2a41582e94.png",
@@ -71,7 +86,10 @@ const ProductTypes: React.FC = () => {
   ];
 
   return (
-    <section className="box-border m-0 px-[120px] py-20 max-md:p-10 max-sm:p-5">
+    <section 
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      className="box-border m-0 px-[120px] py-20 max-md:p-10 max-sm:p-5"
+    >
       <h2 className="box-border text-[color:var(--purple)] text-5xl font-bold mb-10 m-0 p-0">
         Typy holoboxů
       </h2>
@@ -79,6 +97,7 @@ const ProductTypes: React.FC = () => {
         {productTypes.map((product, index) => (
           <ProductTypeCard
             key={index}
+            index={index}
             imageUrl={product.imageUrl}
             altText={product.altText}
             title={product.title}

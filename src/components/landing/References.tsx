@@ -1,22 +1,36 @@
+
 import React from "react";
+import { useSectionAnimation } from "@/hooks/use-section-animation";
 
 const References: React.FC = () => {
+  const sectionRef = useSectionAnimation('section-slide-in-right');
+  const quoteRef = useSectionAnimation('section-scale-in', { 
+    threshold: 0.3, 
+    triggerOnce: true 
+  });
+
   return (
-    <section className="box-border m-0 px-[120px] py-20 max-md:p-10 max-sm:p-5">
+    <section 
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      className="box-border m-0 px-[120px] py-20 max-md:p-10 max-sm:p-5"
+    >
       <h2 className="box-border text-[color:var(--purple)] text-5xl font-bold mb-10 m-0 p-0">
         Reference
       </h2>
       <div className="box-border flex gap-[60px] mb-10 m-0 p-0 max-sm:flex-col">
-        <div className="box-border max-w-[467px] m-0 p-0 max-sm:max-w-full">
+        <div 
+          ref={quoteRef as React.RefObject<HTMLDivElement>}
+          className="box-border max-w-[467px] m-0 p-0 max-sm:max-w-full"
+        >
           <div className="box-border flex gap-[15px] mb-[30px] m-0 p-0">
-            <span className="box-border border border-[color:var(--green)] text-[color:var(--green)] text-base uppercase m-0 px-2 py-1 rounded-[5px] border-solid">
+            <span className="stagger-item box-border border border-[color:var(--green)] text-[color:var(--green)] text-base uppercase m-0 px-2 py-1 rounded-[5px] border-solid">
               VELETRHY
             </span>
-            <span className="box-border border border-[color:var(--green)] text-[color:var(--green)] text-base uppercase m-0 px-2 py-1 rounded-[5px] border-solid">
+            <span className="stagger-item box-border border border-[color:var(--green)] text-[color:var(--green)] text-base uppercase m-0 px-2 py-1 rounded-[5px] border-solid" style={{ transitionDelay: '150ms' }}>
               3D modelace
             </span>
           </div>
-          <blockquote className="box-border m-0 p-0">
+          <blockquote className="stagger-item box-border m-0 p-0" style={{ transitionDelay: '300ms' }}>
             „Holobox od Mission Boxu jsme využili na veletrhu bio potravin
             Biofach. Perfektně nám sloužil na prezentaci produktů, pro které
             máme předběžný design, ale ještě nejsou na trhu. Mohli jsme tak
@@ -24,14 +38,15 @@ const References: React.FC = () => {
             většinou stejně nefungují nebo zbytečně uspěchávat výrobu produktu.
             Vřele doporučujeme!&quot;
           </blockquote>
-          <div className="box-border m-0 p-0 mt-4">
+          <div className="stagger-item box-border m-0 p-0 mt-4" style={{ transitionDelay: '450ms' }}>
             Pavel Trnka, CMO Living Econic (LifeFood)
           </div>
         </div>
         <img
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/292adf80a36c5e2f4efc109e46f61375b2f1b802"
-          className="box-border w-[631px] h-[473px] object-cover m-0 p-0 max-md:w-full max-md:h-auto"
+          className="box-border w-[631px] h-[473px] object-cover m-0 p-0 max-md:w-full max-md:h-auto stagger-item"
           alt="Reference image"
+          style={{ transitionDelay: '600ms' }}
         />
       </div>
       <div className="box-border m-0 p-0">

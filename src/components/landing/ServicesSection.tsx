@@ -1,14 +1,24 @@
 
 import React from "react";
+import { useSectionAnimation } from "@/hooks/use-section-animation";
 
 const ServiceItem: React.FC<{
   imageUrl: string;
   altText: string;
   title: string;
   description: string;
-}> = ({ imageUrl, altText, title, description }) => {
+  index: number;
+}> = ({ imageUrl, altText, title, description, index }) => {
+  const serviceRef = useSectionAnimation(
+    index % 2 === 0 ? 'section-slide-in-left' : 'section-slide-in-right',
+    { threshold: 0.2, triggerOnce: true }
+  );
+
   return (
-    <div className="box-border flex items-center gap-[60px] m-0 p-0 max-md:flex-col">
+    <div 
+      ref={serviceRef as React.RefObject<HTMLDivElement>}
+      className="box-border flex items-center gap-[60px] m-0 p-0 max-md:flex-col"
+    >
       <img
         src={imageUrl}
         className="box-border w-[519px] h-[346px] object-cover m-0 p-0 max-md:w-full max-md:h-auto"
@@ -25,6 +35,8 @@ const ServiceItem: React.FC<{
 };
 
 const ServicesSection: React.FC = () => {
+  const sectionRef = useSectionAnimation('section-fade-in');
+
   const services = [
     {
       imageUrl:
@@ -69,7 +81,10 @@ const ServicesSection: React.FC = () => {
   };
 
   return (
-    <section className="box-border m-0 px-[120px] py-20 max-md:p-10 max-sm:p-5">
+    <section 
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      className="box-border m-0 px-[120px] py-20 max-md:p-10 max-sm:p-5"
+    >
       <h2 className="box-border text-[color:var(--purple)] text-5xl font-bold mb-10 m-0 p-0">
         Co nabízíme
       </h2>
@@ -77,6 +92,7 @@ const ServicesSection: React.FC = () => {
         {services.map((service, index) => (
           <ServiceItem
             key={index}
+            index={index}
             imageUrl={service.imageUrl}
             altText={service.altText}
             title={service.title}

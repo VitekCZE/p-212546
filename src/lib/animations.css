@@ -51,3 +51,60 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Section animations */
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-slide-in-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section-slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-slide-in-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-scale-in.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered item animations */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.stagger-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
