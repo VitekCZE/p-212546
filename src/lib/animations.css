@@ -1,4 +1,3 @@
-
 /* Page transitions - removed */
 
 /* Mouse follower animation */
@@ -50,6 +49,101 @@
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+}
+
+/* Hero full-screen entrance animation */
+.hero-entrance-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--black);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-entrance-container.exiting {
+  animation: hero-exit 1s forwards ease-out;
+}
+
+.hero-entrance-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: hero-image-fade-in 2s forwards ease-out;
+}
+
+.hero-entrance-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white);
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  opacity: 0;
+}
+
+.hero-entrance-headline {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-entrance-subheadline {
+  font-size: 1.8rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-entrance-headline.visible {
+  animation: text-reveal 1s forwards ease-out;
+  animation-delay: 2.2s;
+}
+
+.hero-entrance-subheadline.visible {
+  animation: text-reveal 1s forwards ease-out;
+  animation-delay: 2.7s;
+}
+
+@keyframes hero-image-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-exit {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+    visibility: hidden;
+  }
 }
 
 /* Section animations */

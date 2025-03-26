@@ -6,24 +6,44 @@ const HeroWithMouseEffect: React.FC = () => {
   useMouseEffect();
 
   useEffect(() => {
-    // Add initial animations for hero elements
-    const title = document.querySelector('.hero-title');
-    const subtitle = document.querySelector('.hero-subtitle');
-    const cta = document.querySelector('.hero-cta');
-    const image = document.querySelector('.hero-image');
-    
-    setTimeout(() => {
-      title?.classList.add('is-visible');
+    // Add initial animations for hero elements with a slight delay
+    // to ensure they appear after the entrance animation
+    const animateHeroElements = () => {
+      const title = document.querySelector('.hero-title');
+      const subtitle = document.querySelector('.hero-subtitle');
+      const cta = document.querySelector('.hero-cta');
+      const image = document.querySelector('.hero-image');
       
       setTimeout(() => {
-        subtitle?.classList.add('is-visible');
+        title?.classList.add('is-visible');
         
         setTimeout(() => {
-          cta?.classList.add('is-visible');
-          image?.classList.add('is-visible');
+          subtitle?.classList.add('is-visible');
+          
+          setTimeout(() => {
+            cta?.classList.add('is-visible');
+            image?.classList.add('is-visible');
+          }, 300);
         }, 300);
       }, 300);
-    }, 200);
+    };
+    
+    // Only run animation if entrance is complete or not shown
+    if (!document.querySelector('.hero-entrance-container')) {
+      animateHeroElements();
+    } else {
+      // If entrance animation is active, wait until it's complete
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'childList' && !document.querySelector('.hero-entrance-container')) {
+            animateHeroElements();
+            observer.disconnect();
+          }
+        });
+      });
+      
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
   }, []);
 
   const handleContactClick = (e: React.MouseEvent) => {
