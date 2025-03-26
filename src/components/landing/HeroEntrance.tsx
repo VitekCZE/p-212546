@@ -51,7 +51,6 @@ const HeroEntrance: React.FC = () => {
         playsInline
         muted
         src="https://www.youtube.com/embed/1Cggr7g-TX4?autoplay=1&controls=0&showinfo=0&rel=0&loop=0&start=0&end=6"
-        type="video/mp4"
       >
         {/* Fallback for browsers that don't support video */}
         <img 
