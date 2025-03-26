@@ -23,7 +23,7 @@ const ProductTypeCard: React.FC<ProductTypeProps> = ({
     <div className="box-border text-center max-w-[352px] m-0 p-0 max-sm:max-w-full">
       <img
         src={imageUrl}
-        className="box-border w-full h-[328px] object-cover mb-[30px] m-0 p-0"
+        className="box-border w-full h-[328px] object-contain mb-[30px] m-0 p-0"
         alt={altText}
       />
       <h3 className="box-border text-3xl mb-5 m-0 p-0">{title}</h3>
@@ -42,31 +42,31 @@ const ProductTypeCard: React.FC<ProductTypeProps> = ({
 const ProductTypes: React.FC = () => {
   const productTypes = [
     {
-      imageUrl: "/lovable-uploads/f02e0a0b-f83d-425b-91bb-a33f752e3f8b.png",
+      imageUrl: "/lovable-uploads/d883bf61-a31d-48d1-be0c-817c7fb03e13.png",
       altText: "Human size holobox",
       title: "HUMAN SIZE",
       description:
         "Díky velkoformátové holografické projekci je Human Size ideální pro prezentaci člověka v reálné velikosti - ať už se jedná o přenesení známé osobnosti, představení módních kolekcí, interaktivní asistence nebo zprostředkování virtuálních přednášek.",
       buttonText: "Více o human size",
-      linkTo: "/typy-holoboxu",
+      linkTo: "/typy-holoboxu#human-size",
     },
     {
-      imageUrl: "/lovable-uploads/f02e0a0b-f83d-425b-91bb-a33f752e3f8b.png",
+      imageUrl: "/lovable-uploads/cc6d0b30-7d9b-4671-940a-2a84be1a70e6.png",
       altText: "Product fit holobox",
       title: "PRODUCT FIT",
       description:
         "Revoluční spojení holografie a dotykového rozhraní přináší nový rozměr nakupování, kde si zákazníci mohou produkt detailně prohlédnout ze všech stran. Perfektní pro retailové prostory, e-commerce showroomy nebo specializované butiky, kde záleží na vizuální prezentaci produktů.",
       buttonText: "Více o mEDIUM BOX",
-      linkTo: "/typy-holoboxu",
+      linkTo: "/typy-holoboxu#product-fit",
     },
     {
-      imageUrl: "/lovable-uploads/f02e0a0b-f83d-425b-91bb-a33f752e3f8b.png",
+      imageUrl: "/lovable-uploads/4869c351-3acc-464a-b76f-ea5cf8f0704d.png",
       altText: "Mini box holobox",
       title: "MINI BOX",
       description:
         "Perfektní řešení pro menší showroomy a výlohy, kde každý centimetr hraje roli. Kompaktní rozměry v kombinaci s působivou holografickou projekcí přitáhnou pozornost zákazníků a promění každý produkt v poutavý holografický zážitek..",
       buttonText: "Více o Product fit",
-      linkTo: "/typy-holoboxu",
+      linkTo: "/typy-holoboxu#mini-box",
     },
   ];
 
