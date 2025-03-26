@@ -11,7 +11,7 @@ const Header: React.FC = () => {
     { text: "Co je mission box", link: "/" },
     { text: "typy holoboxů", link: "/typy-holoboxu" },
     { text: "CO NABÍZÍME", link: "/" },
-    { text: "rEFERENCE", link: "/" },
+    { text: "rEFERENCE", link: "/reference" },
     { text: "FAQs", link: "/" },
   ];
 

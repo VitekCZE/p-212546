@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
           </Link>
         </div>
         <div className="box-border flex flex-col gap-8 m-0 p-0">
-          <Link to="/" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
+          <Link to="/reference" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
             Reference
           </Link>
           <Link to="/" className="box-border text-[color:var(--white)] text-base uppercase cursor-pointer m-0 p-0">
