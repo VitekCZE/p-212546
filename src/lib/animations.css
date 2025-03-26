@@ -40,6 +40,32 @@
   mix-blend-mode: difference;
 }
 
+/* Enhanced mouse cursor for hero section */
+.mouse-cursor-custom {
+  transition: transform 0.15s ease-out, width 0.2s ease, height 0.2s ease, opacity 0.3s ease-out;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 20;
+}
+
+/* Hero image hover effects */
+.hero-image-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+.hero-image-hover {
+  transition: transform 0.5s cubic-bezier(0.21, 0.6, 0.35, 1);
+}
+
+.hero-image-container:hover .hero-image-hover {
+  transform: scale(1.03);
+}
+
+.hero-image-container:hover .hover-glow {
+  opacity: 0.6;
+}
+
 /* Button animations */
 .cta-button {
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 

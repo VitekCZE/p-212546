@@ -21,6 +21,15 @@ const Index: React.FC = () => {
     
     // Set initial load as complete immediately
     setInitialLoadComplete(true);
+    
+    // Add animation classes to staggered items after page loads
+    setTimeout(() => {
+      document.querySelectorAll('.stagger-item').forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add('is-visible');
+        }, 150 * index);
+      });
+    }, 300);
   }, []);
 
   return (
