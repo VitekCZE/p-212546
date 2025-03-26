@@ -1,3 +1,4 @@
+
 /* Page transitions */
 .page-transition {
   position: relative;
@@ -37,6 +38,21 @@
   transition: transform 0.2s ease-out, opacity 0.3s ease-out;
   pointer-events: none;
   mix-blend-mode: difference;
+}
+
+@keyframes pulse-cursor {
+  0% {
+    transform: translate(calc(50vw - 35px), calc(50vh - 35px)) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(calc(50vw - 35px), calc(50vh - 35px)) scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(calc(50vw - 35px), calc(50vh - 35px)) scale(1);
+    opacity: 0.7;
+  }
 }
 
 /* Enhanced mouse cursor for hero section */

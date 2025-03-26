@@ -9,10 +9,12 @@ import ContactForm from "@/components/landing/ContactForm";
 import Footer from "@/components/landing/Footer";
 import FullscreenHero from "@/components/landing/FullscreenHero";
 import Hero from "@/components/landing/Hero";
+import { useMouseEffect } from "@/hooks/use-mouse-effect";
 import "@/lib/variables.css";
 
 const Index: React.FC = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
+  useMouseEffect();
 
   // Check if this is a fresh page load or a navigation from another page
   useEffect(() => {

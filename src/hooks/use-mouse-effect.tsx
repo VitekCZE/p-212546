@@ -62,15 +62,24 @@ export function useMouseEffect() {
     // Enhance interaction with interactive elements
     const onElementHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      
       if (target.tagName === 'BUTTON' || target.tagName === 'A' || 
           target.closest('button') || target.closest('a')) {
         cursor.style.width = '50px';
         cursor.style.height = '50px';
         cursor.style.backgroundColor = 'rgba(175, 127, 227, 0.1)';
         cursor.style.mixBlendMode = 'normal';
+      } else if (target.tagName === 'IMG' || target.closest('img')) {
+        // Add pulsing effect on image hover
+        cursor.style.width = '70px';
+        cursor.style.height = '70px';
+        cursor.style.backgroundColor = 'rgba(175, 127, 227, 0.15)';
+        cursor.style.mixBlendMode = 'normal';
+        cursor.style.animation = 'pulse-cursor 1.5s infinite';
       } else {
         cursor.style.backgroundColor = 'transparent';
         cursor.style.mixBlendMode = 'difference';
+        cursor.style.animation = 'none';
       }
     };
     
