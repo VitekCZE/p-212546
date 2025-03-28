@@ -23,19 +23,11 @@ export function useMouseEffect() {
     cursor.style.pointerEvents = 'none';
     cursor.style.transition = 'transform 0.15s ease-out, width 0.2s ease, height 0.2s ease, opacity 0.3s ease-out';
     
-    // Track mouse velocity for dynamic cursor size
-    let mouseX = 0;
-    let mouseY = 0;
-    
     const onMouseMove = (e: MouseEvent) => {
       const x = e.clientX;
       const y = e.clientY;
       
-      // Update position
-      mouseX = x;
-      mouseY = y;
-      
-      cursor.style.opacity = '0.7';
+      // Update cursor position
       cursor.style.transform = `translate(${x - 10}px, ${y - 10}px)`;
     };
     
@@ -43,19 +35,23 @@ export function useMouseEffect() {
     const onElementHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       
-      if (target.tagName === 'BUTTON' || target.tagName === 'A' || 
+      if (target.tagName === 'IMG' || target.closest('img')) {
+        // Add pulsing effect on image hover
+        cursor.style.width = '40px';
+        cursor.style.height = '40px';
+        cursor.style.backgroundColor = 'var(--purple)';
+        cursor.style.opacity = '0.8';
+        cursor.style.animation = 'pulse-cursor 1.5s infinite';
+      } else if (target.tagName === 'BUTTON' || target.tagName === 'A' || 
           target.closest('button') || target.closest('a')) {
         cursor.style.width = '25px';
         cursor.style.height = '25px';
         cursor.style.opacity = '0.8';
-      } else if (target.tagName === 'IMG' || target.closest('img')) {
-        // Add pulsing effect on image hover
-        cursor.style.width = '30px';
-        cursor.style.height = '30px';
-        cursor.style.animation = 'pulse-cursor 1.5s infinite';
+        cursor.style.animation = 'none';
       } else {
         cursor.style.width = '20px';
         cursor.style.height = '20px';
+        cursor.style.opacity = '0.7';
         cursor.style.animation = 'none';
       }
     };
